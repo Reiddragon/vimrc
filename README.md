@@ -52,7 +52,6 @@ install all extensions, install Plug then simply run
     - [DevIcons](https://github.com/ryanoasis/vim-devicons) - add nerdfont
     icons to NERDTree, Airline and other plugins
     - [Fugitive](https://github.com/tpope/vim-fugitive) - fancy git integration
-    - [fzf.vim](https://github.com/junegunn/fzf.vim)
     - [Indent Line](https://github.com/yggdroot/indentline) - indentation hints
     - [NERDCommenter](https://github.com/preservim/nerdcommenter)
     - [NERDTree](https://github.com/preservim/nerdtree) - great tree file view
