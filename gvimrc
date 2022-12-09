@@ -13,5 +13,6 @@
 " that in your gvimrc.
 " Don't say you didn't learn anything reading this unless you already knew
 " this in which case yeah, you probably didn't learn anything :P
-set guifont=Fairfax\ SM\ 13  " Font
-set guioptions=!Pdic   " Other GUI Options
+set guifont=Hack\ Nerd\ Font\ Mono\ 10.3  " Font
+set guioptions=!cdi   " Other GUI Options
+
