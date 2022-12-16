@@ -33,13 +33,9 @@ install all extensions, install Plug then simply run
     - Night, but in a different city
     - [Iceberg](https://github.com/cocopon/iceberg.vim) - amazing cold scheme
 
-- Language Support Plugins
-    - [Haskell-Vim](https://github.com/neovimhaskell/haskell-vim)
-    - [PlantUML](https://github.com/aklt/plantuml-syntax)
+- Additional Language Support Plugins (for stuff Polyglot doesn't cover)
     - [Hy](https://github.com/hylang/vim-hy)
     - [Onnisharp](https://github.com/OmniSharp/Omnisharp-vim) and [SharpenUp](https://github.com/nickspoons/vim-sharpenup)
-    - [Qt Modelling Language](https://github.com/peterhoeg/vim-qml)
-    - [Markdown](https://github.com/preservim/vim-markdown)
 
 
 - Other Plugins
@@ -57,6 +53,7 @@ install all extensions, install Plug then simply run
     - [Indent Line](https://github.com/yggdroot/indentline) - indentation hints
     - [NERDCommenter](https://github.com/preservim/nerdcommenter)
     - [NERDTree](https://github.com/preservim/nerdtree) - great tree file view
+    - [Polyglot](https://github.com/sheerun/vim-polyglot) - One to rule them all, one to find them, one to bring them all and in the darkness bind them
     - [Vim-Slime](https://github.com/jpalardy/vim-slime) - for REPL shennanigans
     - [supertab](https://github.com/ervandew/supertab) - nice on-demand tab
     completion

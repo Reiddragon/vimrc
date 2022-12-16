@@ -45,32 +45,29 @@ Plug 'https://github.com/jpalardy/vim-slime'
 let g:slime_target = "vimterminal"
 
 
-" Other Plugins
-Plug 'https://github.com/editorconfig/editorconfig-vim'   " ¯\_(ツ)_/¯
-Plug 'https://github.com/luochen1990/rainbow'             " Make the parenthesis rainbowy (recommended for (((((LISPs))))))
-Plug 'https://github.com/ervandew/supertab'               " fancy tab autocomplete
+" Plugins
+Plug 'https://github.com/editorconfig/editorconfig-vim'    " ¯\_(ツ)_/¯
+Plug 'https://github.com/luochen1990/rainbow'              " Make the parenthesis rainbowy (recommended for (((((LISPs))))))
+Plug 'https://github.com/ervandew/supertab'                " fancy tab autocomplete
 Plug 'https://github.com/godlygeek/tabular'
-Plug 'https://github.com/jiangmiao/auto-pairs'            " Some steroids for bracket pairs
+Plug 'https://github.com/jiangmiao/auto-pairs'             " Some steroids for bracket pairs
 Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/mhinz/vim-signify'               " show uncommited changes
-Plug 'https://github.com/mhinz/vim-startify'              " Fancy startup screen
-Plug 'https://github.com/ntpeters/vim-better-whitespace'  " Whitespace Highlighting
-Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
-Plug 'https://github.com/preservim/nerdcommenter'         " Steroids for the comments
-Plug 'https://github.com/preservim/nerdtree'              " file tree
-Plug 'https://github.com/ryanoasis/vim-devicons'          " Devicons
-Plug 'https://github.com/tpope/vim-fugitive'              " Git integration
-Plug 'https://github.com/yggdroot/indentline'             " Indent Hints
+Plug 'https://github.com/mhinz/vim-signify'                " show uncommited changes
+Plug 'https://github.com/mhinz/vim-startify'               " Fancy startup screen
+Plug 'https://github.com/ntpeters/vim-better-whitespace'   " Whitespace Highlighting
+Plug 'https://github.com/prabirshrestha/asyncomplete.vim'  " mostly got this for Omnisharp tbh
+Plug 'https://github.com/preservim/nerdcommenter'          " Steroids for the comments
+Plug 'https://github.com/preservim/nerdtree'               " file tree
+Plug 'https://github.com/ryanoasis/vim-devicons'           " Devicons
+Plug 'https://github.com/sheerun/vim-polyglot'             " One to rule them all, one to find them, one to bring them all and in the darkness bind them
+Plug 'https://github.com/tpope/vim-fugitive'               " Git integration
+Plug 'https://github.com/yggdroot/indentline'              " Indent Hints
 
 
-" (Improved) Language Support
-Plug 'https://github.com/aklt/plantuml-syntax'       " PlantUML
+" Additional Language Support (for stuff Polyglot somehow doesn't support)
 Plug 'https://github.com/hylang/vim-hy'              " Hy
-Plug 'https://github.com/neovimhaskell/haskell-vim'  " Haskell
 Plug 'https://github.com/OmniSharp/Omnisharp-vim'    " .NET
 Plug 'https://github.com/nickspoons/vim-sharpenup'   " also .NET
-Plug 'https://github.com/peterhoeg/vim-qml'          " Qt Modeling Language
-Plug 'https://github.com/preservim/vim-markdown'     " Markdown
 
 
 " Fancy Statusbar
@@ -142,6 +139,8 @@ let g:SuperTabDefaultCompletionType = "context"
 "\    's:ContextText',
 "\]
 
+let g:vim_markdown_conceal = 0  " disable Markdown conceal
+
 " Rainbow Config
 let g:rainbow_conf = {
 \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -154,6 +153,11 @@ let g:rainbow_conf = {
 \       'stylus': { 'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'], },
 \   }
 \}
+
+
+" C-3 for escape
+imap <C-3> <esc>
+vmap <C-3> <esc>
 
 
 " NERDTree Settings
