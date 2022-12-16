@@ -30,7 +30,7 @@ install all extensions, install Plug then simply run
     using it with [\[shameless
     plug\]](https://github.com/Reiddragon/embark-konsole)
     - [Kyoto Night](https://github.com/laniusone/kyotonight.vim) - like Tokyo
-    - Night, but in a different city
+    Night, but in a different city
     - [Iceberg](https://github.com/cocopon/iceberg.vim) - amazing cold scheme
 
 - Additional Language Support Plugins (for stuff Polyglot doesn't cover)
