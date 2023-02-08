@@ -30,7 +30,7 @@ install all extensions, install Plug then simply run
     memez aka when I want to see who notices this isn't VS Code :P
     - [C64](https://github.com/tssm/c64-vim-color-scheme) - because some looks
     are just too legendary, even if they're not that great for coding
-    - [Embark](https://github.com/embark-theme/vim) - amazing neon scheme,
+    - [Embark](https://github.com/embark-theme/konsole/) - amazing neon scheme,
     using it with [\[shameless
     plug\]](https://github.com/Reiddragon/embark-konsole)
     - [Kyoto Night](https://github.com/laniusone/kyotonight.vim) - like Tokyo
