@@ -26,6 +26,7 @@ call plug#begin()
 Plug 'https://github.com/arzg/vim-substrata'
 Plug 'https://github.com/chriskempson/base16-vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
+Plug 'https://github.com/dylanaraps/wal.vim'
 Plug 'https://github.com/EdenEast/nightfox.nvim'
 Plug 'https://github.com/embark-theme/vim', {'as': 'embark'}
 Plug 'https://github.com/jnurmine/Zenburn'
@@ -51,13 +52,13 @@ Plug 'https://github.com/jpalardy/vim-slime'
 let g:slime_target = "vimterminal"
 
 
-" Plugins
+" Other Plugins
 Plug 'https://github.com/editorconfig/editorconfig-vim'    " ¯\_(ツ)_/¯
-Plug 'https://github.com/luochen1990/rainbow'              " Make the parenthesis rainbowy (recommended for (((((LISPs))))))
 Plug 'https://github.com/ervandew/supertab'                " fancy tab autocomplete
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/jiangmiao/auto-pairs'             " Some steroids for bracket pairs
 Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/luochen1990/rainbow'              " Make the parenthesis rainbowy (helpful for (((((LISPs))))))
 Plug 'https://github.com/mhinz/vim-signify'                " show uncommited changes
 Plug 'https://github.com/mhinz/vim-startify'               " Fancy startup screen
 Plug 'https://github.com/ntpeters/vim-better-whitespace'   " Whitespace Highlighting
@@ -66,7 +67,7 @@ Plug 'https://github.com/preservim/nerdcommenter'          " Steroids for the co
 Plug 'https://github.com/preservim/nerdtree'               " file tree
 Plug 'https://github.com/ryanoasis/vim-devicons'           " Devicons
 Plug 'https://github.com/tpope/vim-fugitive'               " Git integration
-Plug 'https://github.com/wincent/terminus'                 " better terminal integration I guess? still gotta play with it
+Plug 'https://github.com/wincent/terminus'                 " brings some GVim goodies to terminal Vim
 Plug 'https://github.com/yggdroot/indentline'              " Indent Hints
 
 
@@ -85,7 +86,7 @@ Plug 'https://gitlab.com/HiPhish/guile.vim'          " GNU Guile
 Plug 'https://github.com/vim-airline/vim-airline'         " statusline
 Plug 'https://github.com/vim-airline/vim-airline-themes'  " statusline themes
 
-let g:airline_theme='base16'  " set this when Airline struggles to pick a theme automatically
+"let g:airline_theme='base16'  " set this when Airline struggles to pick a theme automatically
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline_powerline_fonts = 1
 " those little punks bellow don't seem to render properly with non-mono nerd
@@ -112,7 +113,7 @@ if (has('termguicolors'))  " aka truecolor, generally pretty good to enable but 
 endif
 "filetype indent plugin on  " already set in the default vimrc
 syntax enable
-colorscheme substrata
+colorscheme base16-framer
 " because my poor vampire eyes can't handle daylight
 "set background=dark
 set title
@@ -194,6 +195,7 @@ nmap <space>utk    gQterm<enter>wincmd K<enter>exec term_setsize('', 20, 0)<ente
 nmap <space>utj    gQterm<enter>wincmd J<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
 nmap <space>uth    gQterm<enter>wincmd H<enter>vi<enter>
 nmap <space>utl    gQterm<enter>wincmd L<enter>vi<enter>
+nmap <space>ud     :SignifyDiff<enter>
 nmap <space>cr     :so ~/.vim/vimrc<enter>
 map  <space>uc     <leader>c<space>
 nmap <space>ur     :RainbowToggle<enter>
