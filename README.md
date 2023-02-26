@@ -41,6 +41,7 @@ install all extensions, install Plug then simply run
     - [Nightfox](https://github.com/EdenEast/nightfox.nvim)
     - [Substrata](https://github.com/arzg/vim-substrata) - cold scheme, damn
     great with Roboto Mono
+    - [Wal](https://github.com/dylanaraps/wal.vim) - theme to better integrate Vim with [Pywal](https://github.com/dylanaraps/pywal/), doesn't work with `termguicolours` or GVim
     - [Zenburn](https://github.com/jnurmine/Zenburn) - Alien fruit salad
 
 - Additional Language Support Plugins (for stuff Polyglot doesn't cover)
@@ -48,6 +49,11 @@ install all extensions, install Plug then simply run
     - [Onnisharp](https://github.com/OmniSharp/Omnisharp-vim) and
     [SharpenUp](https://github.com/nickspoons/vim-sharpenup)
 
+- Linting
+    - [Asynchronous Lint Engine](https://github.com/dense-analysis/ale)
+    - [vim-lsp](https://github.com/prabirshrestha/vim-lsp)
+    - [vim-lsp-ale](https://github.com/rhysd/vim-lsp-ale) - bridge to make ALE and vim-slp play nicely together
+    - [vim-lsp-settings](https://github.com/mattn/vim-lsp-settings) - to manage LSP servers
 
 - Other Plugins
     - [Airline](https://github.com/vim-airline/vim-airline) and [Airline
