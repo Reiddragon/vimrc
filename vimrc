@@ -26,8 +26,7 @@ call plug#begin()
 Plug 'https://github.com/arzg/vim-substrata'
 Plug 'https://github.com/chriskempson/base16-vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/dylanaraps/wal.vim'
-Plug 'https://github.com/EdenEast/nightfox.nvim'
+Plug 'https://github.com/dylanaraps/wal.vim'  " for use with PyWal, doesn't work with termguicolours or GVim
 Plug 'https://github.com/embark-theme/vim', {'as': 'embark'}
 Plug 'https://github.com/jnurmine/Zenburn'
 Plug 'https://github.com/laniusone/kyotonight.vim'
@@ -35,17 +34,6 @@ Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/tomasiser/vim-code-dark'
 Plug 'https://github.com/tssm/c64-vim-color-scheme'
 
-
-" Linting
-Plug 'https://github.com/dense-analysis/ale'      " Linting Engine
-Plug 'https://github.com/prabirshrestha/vim-lsp'  " LSP client
-Plug 'https://github.com/rhysd/vim-lsp-ale'       " bridge between ALE and vim-lsp
-Plug 'https://github.com/mattn/vim-lsp-settings'  " thingy to manage LSP servers
-
-let g:ale_linters = {
-\    'c': ['cc'],
-\    'cs': ['OmniSharp']
-\}
 
 " REPL Shennanigans
 Plug 'https://github.com/jpalardy/vim-slime'
@@ -55,14 +43,13 @@ let g:slime_target = "vimterminal"
 " Other Plugins
 Plug 'https://github.com/editorconfig/editorconfig-vim'    " ¯\_(ツ)_/¯
 Plug 'https://github.com/ervandew/supertab'                " fancy tab autocomplete
+Plug 'https://github.com/fidian/hexmode'                   " Hex Editing thingy
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/jiangmiao/auto-pairs'             " Some steroids for bracket pairs
-Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/luochen1990/rainbow'              " Make the parenthesis rainbowy (helpful for (((((LISPs))))))
 Plug 'https://github.com/mhinz/vim-signify'                " show uncommited changes
 Plug 'https://github.com/mhinz/vim-startify'               " Fancy startup screen
 Plug 'https://github.com/ntpeters/vim-better-whitespace'   " Whitespace Highlighting
-Plug 'https://github.com/prabirshrestha/asyncomplete.vim'  " mostly got this for Omnisharp tbh
 Plug 'https://github.com/preservim/nerdcommenter'          " Steroids for the comments
 Plug 'https://github.com/preservim/nerdtree'               " file tree
 Plug 'https://github.com/ryanoasis/vim-devicons'           " Devicons
@@ -76,10 +63,8 @@ let g:polyglot_disabled = ['autoindent']  " disable autoindent bullshit because 
 Plug 'https://github.com/sheerun/vim-polyglot' " One to rule them all, one to find them, one to bring them all and in the darkness bind them
 
 " Additional Language Support (for stuff Polyglot somehow doesn't support)
-Plug 'https://github.com/hylang/vim-hy'              " Hy
-Plug 'https://github.com/OmniSharp/Omnisharp-vim'    " .NET
-Plug 'https://github.com/nickspoons/vim-sharpenup'   " also .NET
-Plug 'https://gitlab.com/HiPhish/guile.vim'          " GNU Guile
+Plug 'https://github.com/hylang/vim-hy'      " Hy
+Plug 'https://gitlab.com/HiPhish/guile.vim'  " GNU Guile
 
 
 " Fancy Statusbar
@@ -113,9 +98,9 @@ if (has('termguicolors'))  " aka truecolor, generally pretty good to enable but 
 endif
 "filetype indent plugin on  " already set in the default vimrc
 syntax enable
-colorscheme base16-framer
+colorscheme base16-google-dark
 " because my poor vampire eyes can't handle daylight
-"set background=dark
+set background=dark
 set title
 
 " General Options
@@ -145,9 +130,6 @@ set smartindent
 set cindent
 set list
 
-" LSP Autoformat on write to disk
-autocmd BufWritePre <buffer> LspDocumentFormatSync
-
 " Supertab options
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabCompletionContexts = [
@@ -176,8 +158,8 @@ let g:rainbow_conf = {
 
 
 " C-3 for escape
-imap <C-3> <esc>
-vmap <C-3> <esc>
+"imap <C-3> <esc>
+"vmap <C-3> <esc>
 
 
 " NERDTree Settings
@@ -187,8 +169,8 @@ let NERDTreeChDirMode=3
 nmap <space>ft  :NERDTreeToggle<enter>
 nmap <space>fv  :NERDTreeToggleVCS<enter>
 
-" Vim LSP
-nmap <space>lf  :LspDocumentFormat<enter>
+" toggle Hexmode
+nmap <space>hx  :Hexmode<enter>
 
 " Extra Key Bindings (mostly chords)
 nmap <space>utk    gQterm<enter>wincmd K<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
