@@ -1,4 +1,4 @@
-set guifont=Roboto\ Mono\ 11
+set guifont=Hack\ Nerd\ Font\ Mono\ 10
 set guioptions=!cdi
 set columns=150 lines=50
 

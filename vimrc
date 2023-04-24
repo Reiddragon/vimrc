@@ -26,36 +26,37 @@ call plug#begin()
 Plug 'https://github.com/arzg/vim-substrata'
 Plug 'https://github.com/chriskempson/base16-vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/dylanaraps/wal.vim'  " for use with PyWal, doesn't work with termguicolours or GVim
+Plug 'https://github.com/dylanaraps/wal.vim'  " for use with PyWal, doesn't work with `termguicolours` or GVim
 Plug 'https://github.com/embark-theme/vim', {'as': 'embark'}
 Plug 'https://github.com/jnurmine/Zenburn'
 Plug 'https://github.com/laniusone/kyotonight.vim'
 Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/NLKNguyen/papercolor-theme'
+Plug 'https://github.com/preservim/vim-colors-pencil'
+Plug 'https://github.com/preservim/vim-thematic'
 Plug 'https://github.com/tomasiser/vim-code-dark'
 Plug 'https://github.com/tssm/c64-vim-color-scheme'
 
 
-" REPL Shennanigans
-Plug 'https://github.com/jpalardy/vim-slime'
-let g:slime_target = "vimterminal"
-
-
 " Other Plugins
-Plug 'https://github.com/editorconfig/editorconfig-vim'    " ¯\_(ツ)_/¯
-Plug 'https://github.com/ervandew/supertab'                " fancy tab autocomplete
-Plug 'https://github.com/fidian/hexmode'                   " Hex Editing thingy
-Plug 'https://github.com/godlygeek/tabular'
-Plug 'https://github.com/jiangmiao/auto-pairs'             " Some steroids for bracket pairs
-Plug 'https://github.com/luochen1990/rainbow'              " Make the parenthesis rainbowy (helpful for (((((LISPs))))))
-Plug 'https://github.com/mhinz/vim-signify'                " show uncommited changes
-Plug 'https://github.com/mhinz/vim-startify'               " Fancy startup screen
-Plug 'https://github.com/ntpeters/vim-better-whitespace'   " Whitespace Highlighting
-Plug 'https://github.com/preservim/nerdcommenter'          " Steroids for the comments
-Plug 'https://github.com/preservim/nerdtree'               " file tree
-Plug 'https://github.com/ryanoasis/vim-devicons'           " Devicons
-Plug 'https://github.com/tpope/vim-fugitive'               " Git integration
-Plug 'https://github.com/wincent/terminus'                 " brings some GVim goodies to terminal Vim
-Plug 'https://github.com/yggdroot/indentline'              " Indent Hints
+Plug 'https://github.com/editorconfig/editorconfig-vim'  " ¯\_(ツ)_/¯
+Plug 'https://github.com/ervandew/supertab'              " fancy tab autocomplete
+Plug 'https://github.com/fidian/hexmode'                 " Hex Editing thingy
+Plug 'https://github.com/godlygeek/tabular'              " for alligning stuffs
+Plug 'https://github.com/jiangmiao/auto-pairs'           " Some steroids for bracket pairs
+Plug 'https://github.com/kovisoft/slimv'                 " Common Lisp dev env thingy
+Plug 'https://github.com/luochen1990/rainbow'            " Make the parenthesis rainbowy (helpful for (((((LISPs))))))
+Plug 'https://github.com/mhinz/vim-signify'              " show uncommited changes
+Plug 'https://github.com/mhinz/vim-startify'             " Fancy startup screen
+Plug 'https://github.com/ntpeters/vim-better-whitespace' " Whitespace Highlighting
+Plug 'https://github.com/preservim/nerdcommenter'        " Steroids for the comments
+Plug 'https://github.com/preservim/nerdtree'             " File Tree
+Plug 'https://github.com/preservim/vim-pencil'           " For writing le epic prose
+Plug 'https://github.com/preservim/vim-thematic'         " Fancier theme management
+Plug 'https://github.com/ryanoasis/vim-devicons'         " Devicons
+Plug 'https://github.com/tpope/vim-fugitive'             " Git integration so good it should be illegal
+Plug 'https://github.com/wincent/terminus'               " brings some GVim goodies to terminal Vim
+Plug 'https://github.com/yggdroot/indentline'            " Indent Hints
 
 
 " Polyglot config (because it's kinda weird about some things)
@@ -63,17 +64,20 @@ let g:polyglot_disabled = ['autoindent']  " disable autoindent bullshit because 
 Plug 'https://github.com/sheerun/vim-polyglot' " One to rule them all, one to find them, one to bring them all and in the darkness bind them
 
 " Additional Language Support (for stuff Polyglot somehow doesn't support)
-Plug 'https://github.com/hylang/vim-hy'      " Hy
-Plug 'https://gitlab.com/HiPhish/guile.vim'  " GNU Guile
+Plug 'https://gitlab.com/HiPhish/guile.vim'            " GNU Guile
+Plug 'https://github.com/hylang/vim-hy'                " Hy
+Plug 'https://github.com/janet-lang/janet.vim'         " Janet
+Plug 'https://github.com/vim-pandoc/vim-pandoc'        " Pandoc
+Plug 'https://github.com/vim-pandoc/vim-pandoc-syntax' " Moar Pandoc
 
 
 " Fancy Statusbar
-Plug 'https://github.com/vim-airline/vim-airline'         " statusline
-Plug 'https://github.com/vim-airline/vim-airline-themes'  " statusline themes
+Plug 'https://github.com/vim-airline/vim-airline'        " statusline
+Plug 'https://github.com/vim-airline/vim-airline-themes' " statusline themes
 
 "let g:airline_theme='base16'  " set this when Airline struggles to pick a theme automatically
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 " those little punks bellow don't seem to render properly with non-mono nerd
 " fonts unless you add extra spaces to pad the symbols, that ends up being too
 " wide with Hack tho
@@ -93,15 +97,16 @@ call plug#end()
 
 
 " Theming
-if (has('termguicolors'))  " aka truecolor, generally pretty good to enable but some terminals
+if has('termguicolors')  " aka truecolor, generally pretty good to enable but some terminals
     set termguicolors      " and multiplexers like GNU Screen don't support it
 endif
 "filetype indent plugin on  " already set in the default vimrc
-syntax enable
-colorscheme base16-google-dark
+"syntax enable
+colorscheme iceberg
 " because my poor vampire eyes can't handle daylight
-set background=dark
+set background=light
 set title
+set cursorline
 
 " General Options
 set fileformats=unix  " fuck you \r (WILL fuck with files created on anything that doesn't use plain \n)
@@ -112,7 +117,7 @@ let &t_ut=''
 
 packadd! matchit
 runtime ftplugin/man.vim  " manpages go brrrr
-set autoread
+set autoread  " automagically reload files if edited elsewhere
 
 set number relativenumber numberwidth=5
 
@@ -142,6 +147,9 @@ let g:vim_markdown_conceal = 0  " disable Markdown conceal
 let pascal_fpc=1
 let pascal_one_line_string=1
 
+" SLIMV config
+"let g:slimv_swank_cmd = '! kitty -e sbcl --load /home/reid/.vim/plugged/slimv/slime/start-swank.lisp &'
+let g:paredit_electric_return = 0
 
 " Rainbow Config
 let g:rainbow_conf = {
@@ -157,9 +165,9 @@ let g:rainbow_conf = {
 \}
 
 
-" C-3 for escape
-"imap <C-3> <esc>
-"vmap <C-3> <esc>
+" C-3 for escape cause sometimes this isn't mapped for some reason
+imap <C-3> <esc>
+vmap <C-3> <esc>
 
 
 " NERDTree Settings
