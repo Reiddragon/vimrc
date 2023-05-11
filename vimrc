@@ -36,6 +36,7 @@ Plug 'https://github.com/preservim/vim-colors-pencil'
 Plug 'https://github.com/preservim/vim-thematic'
 Plug 'https://github.com/tomasiser/vim-code-dark'
 Plug 'https://github.com/tssm/c64-vim-color-scheme'
+Plug 'https://github.com/vim-scripts/hybrid.vim'
 
 
 " Other Plugins
@@ -44,7 +45,8 @@ Plug 'https://github.com/ervandew/supertab'              " fancy tab autocomplet
 Plug 'https://github.com/fidian/hexmode'                 " Hex Editing thingy
 Plug 'https://github.com/godlygeek/tabular'              " for alligning stuffs
 Plug 'https://github.com/jiangmiao/auto-pairs'           " Some steroids for bracket pairs
-Plug 'https://github.com/kovisoft/slimv'                 " Common Lisp dev env thingy
+Plug 'https://github.com/kovisoft/paredit'               " For S-Expression editing
+Plug 'https://github.com/kovisoft/slimv'                 " (Common) Lisp dev env thingy
 Plug 'https://github.com/luochen1990/rainbow'            " Make the parenthesis rainbowy (helpful for (((((LISPs))))))
 Plug 'https://github.com/mhinz/vim-signify'              " show uncommited changes
 Plug 'https://github.com/mhinz/vim-startify'             " Fancy startup screen
@@ -54,7 +56,9 @@ Plug 'https://github.com/preservim/nerdtree'             " File Tree
 Plug 'https://github.com/preservim/vim-pencil'           " For writing le epic prose
 Plug 'https://github.com/preservim/vim-thematic'         " Fancier theme management
 Plug 'https://github.com/ryanoasis/vim-devicons'         " Devicons
+Plug 'https://github.com/tpope/vim-eunuch'               " Integration with UNIXy tools
 Plug 'https://github.com/tpope/vim-fugitive'             " Git integration so good it should be illegal
+Plug 'https://github.com/tpope/vim-surround'             " Parenthesis shennanigans (among other things)
 Plug 'https://github.com/wincent/terminus'               " brings some GVim goodies to terminal Vim
 Plug 'https://github.com/yggdroot/indentline'            " Indent Hints
 
@@ -98,13 +102,13 @@ call plug#end()
 
 " Theming
 if has('termguicolors')  " aka truecolor, generally pretty good to enable but some terminals
-    set termguicolors      " and multiplexers like GNU Screen don't support it
+    set termguicolors    " and multiplexers like GNU Screen don't support it
 endif
 "filetype indent plugin on  " already set in the default vimrc
 "syntax enable
-colorscheme iceberg
+colorscheme base16-default-dark
 " because my poor vampire eyes can't handle daylight
-set background=light
+set background=dark
 set title
 set cursorline
 
@@ -147,9 +151,10 @@ let g:vim_markdown_conceal = 0  " disable Markdown conceal
 let pascal_fpc=1
 let pascal_one_line_string=1
 
-" SLIMV config
-"let g:slimv_swank_cmd = '! kitty -e sbcl --load /home/reid/.vim/plugged/slimv/slime/start-swank.lisp &'
-let g:paredit_electric_return = 0
+" AutoPairs config
+" Disable AutoPairs in some filetypes so it doesn't conflict with Paredit
+" `lisp` is actually Common Lisp, not a general ft for all lisps
+au FileType clojure,hy,lisp,scheme let b:autopairs_loaded=1
 
 " Rainbow Config
 let g:rainbow_conf = {
@@ -165,36 +170,36 @@ let g:rainbow_conf = {
 \}
 
 
-" C-3 for escape cause sometimes this isn't mapped for some reason
-imap <C-3> <esc>
-vmap <C-3> <esc>
+" Set a leader
+let mapleader = " "
 
 
 " NERDTree Settings
 let NERDTreeChDirMode=3
 
 " and bindings
-nmap <space>ft  :NERDTreeToggle<enter>
-nmap <space>fv  :NERDTreeToggleVCS<enter>
+nmap <Leader>ft  :NERDTreeToggle<enter>
+nmap <Leader>fv  :NERDTreeToggleVCS<enter>
 
 " toggle Hexmode
-nmap <space>hx  :Hexmode<enter>
+nmap <Leader>hx  :Hexmode<enter>
 
 " Extra Key Bindings (mostly chords)
-nmap <space>utk    gQterm<enter>wincmd K<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
-nmap <space>utj    gQterm<enter>wincmd J<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
-nmap <space>uth    gQterm<enter>wincmd H<enter>vi<enter>
-nmap <space>utl    gQterm<enter>wincmd L<enter>vi<enter>
-nmap <space>ud     :SignifyDiff<enter>
-nmap <space>cr     :so ~/.vim/vimrc<enter>
-map  <space>uc     <leader>c<space>
-nmap <space>ur     :RainbowToggle<enter>
-nmap <space>uws    :StripWhitespace<enter>
+nmap <Leader>utk   gQterm<enter>wincmd K<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
+nmap <Leader>utj   gQterm<enter>wincmd J<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
+nmap <Leader>uth   gQterm<enter>wincmd H<enter>vi<enter>
+nmap <Leader>utl   gQterm<enter>wincmd L<enter>vi<enter>
+nmap <Leader>ud    :setlocal invdiff invscrollbind invcursorbind<enter>
+nmap <Leader>ugd   :SignifyDiff<enter>
+nmap <Leader>cr    :so ~/.vim/vimrc<enter>
+map  <Leader>uc    <leader>c<space>
+nmap <Leader>ur    :RainbowToggle<enter>
+nmap <Leader>uws   :StripWhitespace<enter>
 nmap <C-w>Q        :qa<enter>
-nmap <space>to     :tabnew<enter>
-nmap <space>tc     :tabclose<enter>
-nmap <space>tp     :tabprev<enter>
-nmap <space>tn     :tabnext<enter>
+nmap <Leader>to    :tabnew<enter>
+nmap <Leader>tc    :tabclose<enter>
+nmap <Leader>tp    :tabprev<enter>
+nmap <Leader>tn    :tabnext<enter>
 nmap <C-PageUp>    :tabprev<enter>
 nmap <C-PageDown>  :tabnext<enter>
 
