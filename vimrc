@@ -35,7 +35,6 @@ Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'https://github.com/preservim/vim-colors-pencil'
 Plug 'https://github.com/tomasiser/vim-code-dark'
 Plug 'https://github.com/tssm/c64-vim-color-scheme'
-Plug 'https://github.com/vim-scripts/hybrid.vim'
 
 
 " Other Plugins
