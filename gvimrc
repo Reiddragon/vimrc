@@ -1,5 +1,5 @@
 set guifont=Hack\ Nerd\ Font\ Mono\ 10
-set guioptions=!cdi
+set guioptions=!cime
 set columns=150 lines=50
 
 set clipboard=unnamedplus  " Sync the GVim clipboard with the system clipboard
