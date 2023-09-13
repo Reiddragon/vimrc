@@ -27,19 +27,17 @@ I use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins, so to 
     - [Embark](https://github.com/embark-theme/konsole/)
     - [Kyoto Night](https://github.com/laniusone/kyotonight.vim)
     - [Gruvbox](https://github.com/morhetz/gruvbox)
-    - [Hybrid](https://github.com/vim-scripts/hybrid.vim)
     - [Iceberg](https://github.com/cocopon/iceberg.vim)
     - [PaperColor](https://github.com/NLKNguyen/papercolor-theme)
     - [Pencil](https://github.com/preservim/vim-colors-pencil)
     - [Substrata](https://github.com/arzg/vim-substrata)
-    - [Wal](https://github.com/dylanaraps/wal.vim)
-    - [Pywal](https://github.com/dylanaraps/pywal/) (doesn't work with `termguicolours` or GVim `:(`)
+    - [Wal](https://github.com/dylanaraps/wal.vim) - for use with [Pywal](https://github.com/dylanaraps/pywal/) (doesn't work with `termguicolours` or GVim `:(`)
     - [Zenburn](https://github.com/jnurmine/Zenburn)
 
-- Additional Language Support Plugins (for stuff Polyglot doesn't cover)
-    - [GNU Guile](https://gitlab.com/HiPhish/guile.vim)
-    - [Hy](https://github.com/hylang/vim-hy)
-    - [Janet](https://github.com/janet-lang/janet.vim)
+- Additional Language Support Plugins
+    - [Polyglot](https://github.com/sheerun/vim-polyglot) - Ash durbatulûk, ash gimbatul, ash thrakatulûk, agh burzum-ishi krimpatul
+    - [Hy](https://github.com/hylang/vim-hy) - it's like Python but lispy!
+    - [Org Mode](https://github.com/jceb/vim-orgmode)
     - [vim-pandoc](https://github.com/vim-pandoc/vim-pandoc) and [vim-pandoc-syntax](https://github.com/vim-pandoc/vim-pandoc-syntax)
 
 - Other Plugins
@@ -54,20 +52,15 @@ I use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins, so to 
     - [Indent Line](https://github.com/yggdroot/indentline) - indentation hints
     - [NERDCommenter](https://github.com/preservim/nerdcommenter) - steroids for comments
     - [NERDTree](https://github.com/preservim/nerdtree) - great tree file view
-    - [Polyglot](https://github.com/sheerun/vim-polyglot) - Ash durbatulûk, ash gimbatul, ash thrakatulûk, agh burzum-ishi krimpatul
-    - [Vim-Slime](https://github.com/jpalardy/vim-slime) - for REPL shennanigans
-    - [Paredit](https://github.com/kovisoft/paredit) - for editing S-expressions
     - [Pencil](https://github.com/preservim/vim-pencil) - to make Vim nicer to use for writing prose
-    - [Rainbow](https://github.com/luochen1990/rainbow) - makes parenthesis and brackets all rainbowy, especially useful for LISPs
     - [Signify](https://github.com/mhinz/vim-signify) - adds indicators for changes since the last git commit, also has a great diff thingy
     - [SLIMV](https://github.com/kovisoft/slimv) - for Lispy Development
-    - [Supertab](https://github.com/ervandew/supertab) - nice on-demand tab-completion
+        - also includes [Paredit](https://github.com/kovisoft/paredit) for editing S-expressions, use this one instead if you don't care about the fancy repl integrations and only need the structured editing tools
+    - [Supertab](https://github.com/ervandew/supertab) - nice on-demand tab-completion, especially nice with C and Python
     - [Surround](https://github.com/tpope/vim-surround)
-    - [Startify](https://github.com/mhinz/vim-startify) - fancy Vim start page
-    - [Tabular](https://github.com/godlygeek/tabular) - for alligning stuffs
+    - [Startify](https://github.com/mhinz/vim-startify) - fancy Vim start page, also has some sesison saving na dloading
+    - [Tabular](https://github.com/godlygeek/tabular) - for aligning stuffs
     - [Terminus](https://github.com/wincent/terminus) - some goodies to improve The Vim Experience(TM) in a terminal
-    - [Thematic](https://github.com/preservim/vim-thematic) - for saving fancier theme pack thingies
-
-
+    - [Thematic](https://github.com/preservim/vim-thematic) - Fancier theme management
 
 
