@@ -26,7 +26,7 @@ call plug#begin()
 Plug 'https://github.com/arzg/vim-substrata'
 Plug 'https://github.com/chriskempson/base16-vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/dylanaraps/wal.vim'  " for use with PyWal, doesn't work with `termguicolours` or GVim
+Plug 'https://github.com/dylanaraps/wal.vim'  " for use with Pywal, doesn't work with `termguicolours` or GVim
 Plug 'https://github.com/embark-theme/vim', {'as': 'embark'}
 Plug 'https://github.com/jnurmine/Zenburn'
 Plug 'https://github.com/laniusone/kyotonight.vim'
@@ -44,9 +44,8 @@ Plug 'https://github.com/ervandew/supertab'              " fancy tab autocomplet
 Plug 'https://github.com/fidian/hexmode'                 " Hex Editing thingy
 Plug 'https://github.com/godlygeek/tabular'              " for alligning stuffs
 Plug 'https://github.com/jiangmiao/auto-pairs'           " Some steroids for bracket pairs
-Plug 'https://github.com/kovisoft/paredit'               " For S-Expression editing
+"Plug 'https://github.com/kovisoft/paredit'               " For S-Expression editing
 Plug 'https://github.com/kovisoft/slimv'                 " (Common) Lisp dev env thingy
-Plug 'https://github.com/luochen1990/rainbow'            " Make the parenthesis rainbowy (helpful for (((((LISPs))))))
 Plug 'https://github.com/mhinz/vim-signify'              " show uncommited changes
 Plug 'https://github.com/mhinz/vim-startify'             " Fancy startup screen
 Plug 'https://github.com/ntpeters/vim-better-whitespace' " Whitespace Highlighting
@@ -67,9 +66,8 @@ let g:polyglot_disabled = ['autoindent']  " disable autoindent bullshit because 
 Plug 'https://github.com/sheerun/vim-polyglot' " One to rule them all, one to find them, one to bring them all and in the darkness bind them
 
 " Additional Language Support (for stuff Polyglot somehow doesn't support)
-Plug 'https://gitlab.com/HiPhish/guile.vim'            " GNU Guile
 Plug 'https://github.com/hylang/vim-hy'                " Hy
-Plug 'https://github.com/janet-lang/janet.vim'         " Janet
+Plug 'https://github.com/jceb/vim-orgmode'             " Emacs Org Mode
 Plug 'https://github.com/vim-pandoc/vim-pandoc'        " Pandoc
 Plug 'https://github.com/vim-pandoc/vim-pandoc-syntax' " Moar Pandoc
 
@@ -79,22 +77,27 @@ Plug 'https://github.com/vim-airline/vim-airline'        " statusline
 Plug 'https://github.com/vim-airline/vim-airline-themes' " statusline themes
 
 "let g:airline_theme='base16'  " set this when Airline struggles to pick a theme automatically
+let g:airline_theme='base16_horizon_terminal_dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " those little punks bellow don't seem to render properly with non-mono nerd
 " fonts unless you add extra spaces to pad the symbols, that ends up being too
 " wide with Hack tho
 " * tested in Konsole and GVim GTK
-"let g:airline_left_sep=''
-"let g:airline_right_sep=''
-"let g:airline_left_alt_sep=''
-"let g:airline_right_alt_sep=''
-"let g:airline#extensions#tabline#left_sep = ''
-"let g:airline#extensions#tabline#left_alt_sep = ''
-"let g:airline#extensions#tabline#right_sep = ''
-"let g:airline#extensions#tabline#right_alt_sep = ''
+"let g:airline_left_sep                         = ''
+"let g:airline_right_sep                        = ''
+"let g:airline_left_alt_sep                     = ''
+"let g:airline_right_alt_sep                    = ''
+"let g:airline#extensions#tabline#left_sep      = ''
+"let g:airline#extensions#tabline#left_alt_sep  = ''
+"let g:airline#extensions#tabline#right_sep     = ''
+"let g:airline#extensions#tabline#right_alt_sep = ''
 
 set noshowmode  " because Airline already shows the current editor mode
+
+" Local plugins
+Plug '~/base16-build/output/vim', {'as': 'base16-local'}
+Plug '~/base16-build/output/vim-airline-themes', {'as': 'base16-airline-local'}
 
 call plug#end()
 
@@ -104,16 +107,16 @@ if has('termguicolors')  " aka truecolor, generally pretty good to enable but so
     set termguicolors    " and multiplexers like GNU Screen don't support it
 endif
 "filetype indent plugin on  " already set in the default vimrc
-"syntax enable
-colorscheme base16-default-dark
-" because my poor vampire eyes can't handle daylight
+syntax enable
 set background=dark
-set title
-set cursorline
+colorscheme base16-horizon-terminal-dark
+" because my poor vampire eyes can't handle daylight
 
 " General Options
 set fileformats=unix  " fuck you \r (WILL fuck with files created on anything that doesn't use plain \n)
 filetype plugin on
+set title
+"set cursorline
 set colorcolumn=80
 " Fix for background in Kitty
 let &t_ut=''
@@ -129,14 +132,21 @@ set wildmenu wildoptions=fuzzy,pum
 set showcmd
 set confirm  " ask for confirmation instead of failing when a buffer isn't written to disk
 set belloff=all  " turn off the bell
+
 " Indent stuffs
 set tabstop=4
 set expandtab
 set shiftwidth=4
 set autoindent
 set smartindent
-set cindent
+"set cindent
 set list
+
+" Search stuffs
+set hlsearch                    " highlight the search
+set ignorecase                  " caseless search
+set smartcase                   " except when using capitals
+set incsearch                   " instant search
 
 " Supertab options
 let g:SuperTabDefaultCompletionType = "context"
@@ -147,8 +157,11 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:vim_markdown_conceal = 0  " disable Markdown conceal
 
 " Pascal.vim settings
-let pascal_fpc=1
-let pascal_one_line_string=1
+let pascal_fpc = 1
+let pascal_one_line_string = 1
+
+" Slimv config
+let g:slimv_swank_cmd = '! screen -S swank sbcl --load /home/reid/.vim/plugged/slimv/slime/start-swank.lisp'
 
 " AutoPairs config
 " Disable AutoPairs in some filetypes so it doesn't conflict with Paredit
@@ -172,34 +185,40 @@ let g:rainbow_conf = {
 " Set a leader
 let mapleader = " "
 
-
 " NERDTree Settings
 let NERDTreeChDirMode=3
 
-" and bindings
+
+" Open NERDTree in cwd or the root of the current VCS repo
 nmap <Leader>ft  :NERDTreeToggle<enter>
 nmap <Leader>fv  :NERDTreeToggleVCS<enter>
-
 " toggle Hexmode
 nmap <Leader>hx  :Hexmode<enter>
-
-" Extra Key Bindings (mostly chords)
-nmap <Leader>utk   gQterm<enter>wincmd K<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
-nmap <Leader>utj   gQterm<enter>wincmd J<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
-nmap <Leader>uth   gQterm<enter>wincmd H<enter>vi<enter>
-nmap <Leader>utl   gQterm<enter>wincmd L<enter>vi<enter>
-nmap <Leader>ud    :setlocal invdiff invscrollbind invcursorbind<enter>
-nmap <Leader>ugd   :SignifyDiff<enter>
-nmap <Leader>cr    :so ~/.vim/vimrc<enter>
-map  <Leader>uc    <leader>c<space>
-nmap <Leader>ur    :RainbowToggle<enter>
-nmap <Leader>uws   :StripWhitespace<enter>
-nmap <C-w>Q        :qa<enter>
+" Open terminal on window edge
+nmap <Leader>utk  gQterm<enter>wincmd K<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
+nmap <Leader>utj  gQterm<enter>wincmd J<enter>exec term_setsize('', 20, 0)<enter>vi<enter>
+nmap <Leader>uth  gQterm<enter>wincmd H<enter>vi<enter>
+nmap <Leader>utl  gQterm<enter>wincmd L<enter>vi<enter>
+" diff stuffs
+nmap <Leader>ud   :setlocal invdiff invscrollbind invcursorbind<enter>
+nmap <Leader>ugd  :SignifyDiff<enter>
+" Reload the vimrc
+nmap <Leader>cr  :so ~/.vim/vimrc<enter>
+" Strip the whitespace
+nmap <Leader>uws  :StripWhitespace<enter>
+" close all windows
+nmap <C-w>Q  :qa<enter>
+" Tab stuffs
 nmap <Leader>to    :tabnew<enter>
 nmap <Leader>tc    :tabclose<enter>
 nmap <Leader>tp    :tabprev<enter>
 nmap <Leader>tn    :tabnext<enter>
 nmap <C-PageUp>    :tabprev<enter>
 nmap <C-PageDown>  :tabnext<enter>
+" move the cursor and scroll the view at the same time
+nmap <C-j>  j<C-e>
+nmap <C-k>  k<C-y>
+" hide the search highlight
+nmap <C-/>  :nohlsearch<enter>
 
 
